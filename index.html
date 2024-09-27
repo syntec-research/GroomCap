@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="NeRF-Art: Text-Driven Neural Radiance Fields Stylization">
+  <meta name="keywords" content="FDNeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GroomCap: High-Fidelity Prior-Free Hair Capture</title>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">GroomCap:<br>High-Fidelity Prior-Free Hair Capture</h1>
+          <h1 class="title is-3">SIGGRAPH Asia 2024 (ACM Transactions on Graphics)</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://calciferzh.github.io/">Yuxiao Zhou</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://mlchai.com/">Menglei Chai</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=pe5XLTEAAAAJ&hl=en">Daoye Wang</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=UXta2uUAAAAJ&hl=en">Sebastian Winberg</a><sup>2</sup>,</span><br>
+			<span class="author-block">
+              <a href="https://errollw.com/">Erroll Wood</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://krips89.github.io/profile_page/">Kripasindhu Sarkar</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://inf.ethz.ch/people/person-detail.mgross.html">Markus Gross</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://thabobeeler.com/">Thabo Beeler</a><sup>2</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>ETH Zurich,</span>
+			<span class="author-block"><sup>2</sup>Google</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="./static/files/paper.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2409.00831"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-std1">
+          <img src="./static/video/std1.gif">
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div id="teaser-carousel" class="carousel results-carousel">
+        <div class="item">
+		  <video poster="" autoplay muted loop playsinline>
+		    <source src="./static/files/321.mp4" type="video/mp4">
+		  </video>
+        </div>
+        <div class="item">
+		  <video poster="" autoplay muted loop playsinline>
+		    <source src="./static/files/328.mp4" type="video/mp4">
+		  </video>
+        </div>
+        <div class="item">
+		  <video poster="" autoplay muted loop playsinline>
+		    <source src="./static/files/346.mp4" type="video/mp4">
+		  </video>
+        </div>
+        <div class="item">
+		  <video poster="" autoplay muted loop playsinline>
+		    <source src="./static/files/357.mp4" type="video/mp4">
+		  </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+bulmaCarousel.attach('#teaser-carousel', {
+	loop: true,
+	infinite: true,
+	slidesToScroll: 1,
+	slidesToShow: 2,
+	autoplay: true,
+	autoplaySpeed: 5000,
+	pauseOnHover: true,
+	pagination: false,
+});
+</script>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+  <!-- <div class="container"> -->
+  
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <br />
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+
+          <!-- <iframe src="https://www.youtube.com/watch?v=at_42ekU0I0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+          <iframe width="400" height="300" src="https://www.youtube.com/embed/tpAYTj9h_Fg?si=dY-rAATJSHbj-9cp" 
+          title="YouTube video player" frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+          </iframe>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <!-- <div class="column is-four-fifths"> -->
+      <div class="column is-full-width">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+Despite recent advances in multi-view hair reconstruction, achieving strand-level precision remains a significant challenge due to inherent limitations in existing capture pipelines. We introduce <i>GroomCap</i>, a novel multi-view hair capture method that reconstructs faithful and high-fidelity hair geometry without relying on external data priors. To address the limitations of conventional reconstruction algorithms, we propose a neural implicit representation for hair volume that encodes high-resolution 3D orientation and occupancy from input views. This implicit hair volume is trained with a new volumetric 3D orientation rendering algorithm, coupled with 2D orientation distribution supervision, to effectively prevent the loss of structural information caused by undesired orientation blending. We further propose a Gaussian-based hair optimization strategy to refine the traced hair strands with a novel chained Gaussian representation, utilizing direct photometric supervision from images. Our results demonstrate that <i>GroomCap</i> is able to capture high-quality hair geometries that are not only more precise and detailed than existing methods but also versatile enough for a range of applications.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+        <h2 class="title is-3" style="text-align:center">Reconstruction Results</h2>
+          <h3 class="title is-5" style="text-align:left"></h3>
+          <div id="reconstruction-carousel" class="carousel results-carousel">
+            <div class="item">
+              <img src="./static/files/0.png">
+            </div>
+            <div class="item">
+              <img src="./static/files/1.png">
+            </div>
+            <div class="item">
+              <img src="./static/files/2.png">
+            </div>
+            <div class="item">
+              <img src="./static/files/3.png">
+            </div>
+            <div class="item">
+              <img src="./static/files/4.png">
+            </div>
+  		    <div class="item">
+              <img src="./static/files/5.png">
+            </div>
+  		    <div class="item">
+              <img src="./static/files/6.png">
+            </div>
+            <div class="item">
+              <img src="./static/files/7.png">
+            </div>
+          </div>
+          <div id="reconstruction-carousel" class="carousel results-carousel">
+            <div class="item">
+              <img src="./static/files/8.png">
+            </div>
+            <div class="item">
+              <img src="./static/files/9.png">
+            </div>
+            <div class="item">
+              <img src="./static/files/10.png">
+            </div>
+            <div class="item">
+              <img src="./static/files/11.png">
+            </div>
+  		    <div class="item">
+              <img src="./static/files/12.png">
+            </div>
+  		    <div class="item">
+              <img src="./static/files/13.png">
+            </div>
+  		    <div class="item">
+              <img src="./static/files/14.png">
+            </div>
+  		    <div class="item">
+              <img src="./static/files/15.png">
+            </div>
+          </div>
+      </div>
+    </div>
+</section>
+	<script>
+	bulmaCarousel.attach('#reconstruction-carousel', {
+		loop: true,
+		infinite: true,
+		slidesToShow: 1,
+		autoplay: true,
+		autoplaySpeed: 5000,
+		pauseOnHover: true,
+		pagination: false,
+	});
+	</script>
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+        <h2 class="title is-3" style="text-align:center">Relighting Results</h2>
+          <h3 class="title is-5" style="text-align:left"></h3>
+          <div id="relighting-carousel" class="carousel results-carousel">
+            <div class="item">
+			  <video poster="" autoplay muted loop playsinline>
+			    <source src="./static/files/r11.mp4" type="video/mp4">
+			  </video>
+            </div>
+            <div class="item">
+			  <video poster="" autoplay muted loop playsinline>
+			    <source src="./static/files/r12.mp4" type="video/mp4">
+			  </video>
+            </div>
+            <div class="item">
+			  <video poster="" autoplay muted loop playsinline>
+			    <source src="./static/files/r13.mp4" type="video/mp4">
+			  </video>
+            </div>
+            <div class="item">
+			  <video poster="" autoplay muted loop playsinline>
+			    <source src="./static/files/r14.mp4" type="video/mp4">
+			  </video>
+            </div>
+            <div class="item">
+			  <video poster="" autoplay muted loop playsinline>
+			    <source src="./static/files/r15.mp4" type="video/mp4">
+			  </video>
+            </div>
+  		    <div class="item">
+			  <video poster="" autoplay muted loop playsinline>
+			    <source src="./static/files/r16.mp4" type="video/mp4">
+			  </video>
+            </div>
+  		    <div class="item">
+			  <video poster="" autoplay muted loop playsinline>
+			    <source src="./static/files/r17.mp4" type="video/mp4">
+			  </video>
+            </div>
+            <div class="item">
+			  <video poster="" autoplay muted loop playsinline>
+			    <source src="./static/files/r18.mp4" type="video/mp4">
+			  </video>
+            </div>
+          </div>
+          <div id="relighting-carousel" class="carousel results-carousel">
+            <div class="item">
+			  <video poster="" autoplay muted loop playsinline>
+			    <source src="./static/files/r21.mp4" type="video/mp4">
+			  </video>
+            </div>
+            <div class="item">
+			  <video poster="" autoplay muted loop playsinline>
+			    <source src="./static/files/r22.mp4" type="video/mp4">
+			  </video>
+            </div>
+            <div class="item">
+			  <video poster="" autoplay muted loop playsinline>
+			    <source src="./static/files/r23.mp4" type="video/mp4">
+			  </video>
+            </div>
+            <div class="item">
+			  <video poster="" autoplay muted loop playsinline>
+			    <source src="./static/files/r24.mp4" type="video/mp4">
+			  </video>
+            </div>
+            <div class="item">
+			  <video poster="" autoplay muted loop playsinline>
+			    <source src="./static/files/r25.mp4" type="video/mp4">
+			  </video>
+            </div>
+  		    <div class="item">
+			  <video poster="" autoplay muted loop playsinline>
+			    <source src="./static/files/r26.mp4" type="video/mp4">
+			  </video>
+            </div>
+  		    <div class="item">
+			  <video poster="" autoplay muted loop playsinline>
+			    <source src="./static/files/r27.mp4" type="video/mp4">
+			  </video>
+            </div>
+            <div class="item">
+			  <video poster="" autoplay muted loop playsinline>
+			    <source src="./static/files/r28.mp4" type="video/mp4">
+			  </video>
+            </div>
+          </div>
+      </div>
+    </div>
+</section>
+	<script>
+	bulmaCarousel.attach('#relighting-carousel', {
+		loop: true,
+		infinite: true,
+		slidesToShow: 3,
+		autoplay: true,
+		autoplaySpeed: 5000,
+		pauseOnHover: true,
+		pagination: false,
+	});
+	</script>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{zhou2024groomcap,
+  title={GroomCap: High-Fidelity Prior-Free Hair Capture},
+  author={Zhou, Yuxiao and Chai, Menglei and Wang, Daoye and Winberg, Sebastian and Wood, Erroll and Sarkar, Kripasindhu and Gross, Markus and Beeler, Thabo},
+  journal={{ACM} Transactions on Graphics},
+  year={2024}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+
+    <div class="content has-text-centered">
+      <a class="icon-link"
+        href="">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+
+            The <a href="https://github.com/nerfies/nerfies.github.io">source code</a> for the website 
+            was taken from Nerfies. We appreciate the authors sharing the templates with us.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
